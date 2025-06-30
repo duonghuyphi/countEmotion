@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Emotion Counter</title>
+  <style>
+    body { font-family: Arial; text-align: center; margin-top: 100px; }
+    #value { font-size: 48px; margin: 20px; }
+    #emotion { font-size: 64px; transition: 0.3s ease; }
+    button { font-size: 24px; padding: 10px 20px; margin: 5px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div id="value">0</div>
+  <div id="emotion">😐</div>
+  <button onclick="changeValue(-1)">➖</button>
+  <button onclick="changeValue(1)">➕</button>
+
+  <script>
+    let value = parseInt(localStorage.getItem("emotionValue")) || 0;
+
+    function updateUI() {
+      document.getElementById("value").innerText = value;
+      document.getElementById("emotion").innerText = getEmotion(value);
+      localStorage.setItem("emotionValue", value);
+    }
+
+    function getEmotion(val) {
+  if (val < 0) return "😐";  // Giá trị âm – trung tính hoặc không hợp lệ
+
+  if (val < 10) return "🙂";
+  if (val < 20) return "😊";
+  if (val < 30) return "😃";
+  if (val < 40) return "😄";
+  if (val < 50) return "😁";
+  if (val < 60) return "😆";
+  if (val < 70) return "🤣";
+  if (val < 80) return "😺";
+  if (val < 90) return "😸";
+  if (val < 100) return "😻";
+  if (val < 110) return "😍";
+  if (val < 120) return "🥰";
+  if (val < 130) return "🤗";
+  if (val < 140) return "🤩";
+  if (val < 150) return "😎";
+  if (val < 160) return "🤑";
+  if (val < 170) return "🥳";
+  if (val < 180) return "💃";
+  if (val < 190) return "🕺";
+  if (val < 200) return "🎉";
+  if (val < 210) return "🌟";
+  if (val < 220) return "🔥";
+  if (val < 230) return "🚀";
+  if (val < 240) return "🏆";
+  if (val < 250) return "🥇";
+  if (val < 260) return "👑";
+  if (val < 270) return "💎";
+  if (val < 280) return "🌈";
+  if (val < 290) return "🎊";
+  if (val < 300) return "🎆";
+  if (val < 310) return "🏅";
+  if (val < 320) return "✨";
+  if (val < 330) return "🧨";
+  if (val < 340) return "🎇";
+  if (val < 350) return "🍾";
+  if (val < 360) return "🥂";
+  if (val < 370) return "🍰";
+  if (val < 380) return "🎂";
+  if (val < 390) return "☀️";
+  if (val < 400) return "🌞";
+  if (val < 410) return "🛸";
+  if (val < 420) return "🪐";
+  if (val < 430) return "🧠";
+  if (val < 440) return "💡";
+  if (val < 450) return "⚡";
+  if (val < 460) return "🌋";
+  if (val < 470) return "🌠";
+  if (val < 480) return "📈";
+  if (val < 490) return "💹";
+  if (val < 500) return "💥";
+
+  return "🧨🚀🏆🎉";  // ≥ 500: Đỉnh cao rực rỡ!
+}
+
+
+    function changeValue(amount) {
+      value += amount;
+      updateUI();
+    }
+
+    updateUI();
+  </script>
+</body>
+</html>
